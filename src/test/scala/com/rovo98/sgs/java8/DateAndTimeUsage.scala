@@ -10,7 +10,7 @@ import java.util.Date
  * ref from: https://dzone.com/articles/java-8-date-and-time
  *
  */
-object DataAndTimeUsage {
+object DateAndTimeUsage {
   def main(args: Array[String]): Unit = {
     val date1 = LocalDate.of(2018, 2, 13)
     val date2 = LocalDate.parse("2018-02-13")
@@ -77,7 +77,7 @@ object DataAndTimeUsage {
     val now = new Date()
     val testDateTime = LocalDateTime.ofInstant(now.toInstant, ZoneId.systemDefault())
 
-    val utilDate1 = Date.from(testDateTime.toInstant(ZoneOffset.ofHours(1)))
+    val utilDate1 = Date.from(testDateTime.toInstant(ZoneOffset.ofHours(8)))
     val utilDate2 = Date.from(testDateTime.toInstant(ZoneId.systemDefault().getRules.getOffset(testDateTime)))
     println(s"utilDate now -> $now.")
     println(s"converting localDateTime to utilDate 1 : $utilDate1")
@@ -92,5 +92,14 @@ object DataAndTimeUsage {
     val duration = Duration.between(LocalDateTime.parse(s"${today}T17:44"),
       LocalDateTime.parse("2020-11-28T11:00"))
     println(s"duration usage: $duration")
+
+
+    // Period string representation based on ISO-8601 standard, PnYnMnD.
+    // e.g. P1Y2M3D 表示 1 年 2 月 3 天
+    println(Period.parse("P2M15D"))
+
+    // Duration string representation: PnDTnHnMn.nS, PTnHnMn.nS
+    val duration1 = Duration.between(LocalDateTime.parse(s"${today}T09:58"), LocalDateTime.parse("2020-12-09T10:00"))
+    println(s"duration1 = $duration1, toHour -> ${duration1.toHours}")
   }
 }
