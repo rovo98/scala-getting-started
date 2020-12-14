@@ -51,4 +51,6 @@ Methods may have multiple parameter lists.
 
 Use cases
 1. Drive Type Inference 驱动类型推断
+2. implicit parameters 隐式参数列表
+3. Partial application 部分应用
  */
