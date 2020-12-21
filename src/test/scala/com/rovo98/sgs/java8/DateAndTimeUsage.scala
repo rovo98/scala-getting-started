@@ -2,7 +2,7 @@ package com.rovo98.sgs.java8
 
 import java.time.format.DateTimeFormatter
 import java.time.temporal.{ChronoUnit, TemporalAdjusters}
-import java.time.{Duration, LocalDate, LocalDateTime, LocalTime, Period, ZoneId, ZoneOffset}
+import java.time.{Duration, LocalDate, LocalDateTime, LocalTime, OffsetDateTime, Period, ZoneId, ZoneOffset, ZonedDateTime}
 import java.util.Date
 
 /**
@@ -48,7 +48,7 @@ object DateAndTimeUsage {
     println(s"conversion(LocalDateTime -> LocalTime: $time3")
 
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-    println(LocalDateTime.parse(s"$today 12:34:00", formatter))
+    println("DateFormatter Usage: parse -> " + LocalDateTime.parse(s"$today 12:34:00", formatter))
 
     // easily perform operations on date and time representations.
     val date4 = LocalDate.parse(today).plusDays(5)
@@ -102,5 +102,21 @@ object DateAndTimeUsage {
     val duration1 = Duration.between(LocalDateTime.parse(s"${today}T09:58"),
       LocalDateTime.parse("2020-12-09T10:00"))
     println(s"duration1 = $duration1, toHour -> ${duration1.toHours}")
+
+    // Working with Zones and Offsets - ZonedDateTime and OffsetDateTime
+    // ZonedDateTime 具备时区信息的 LocalDateTime
+    // OffsetDateTime 具备时间偏移信息的 LocalDateTime
+    val offsetDateTime1 = LocalDateTime.parse("2020-12-14T11:52").atOffset(ZoneOffset.ofHours(8))
+    val offsetDateTime2 = OffsetDateTime.parse("2020-12-14T12:00+08:00")
+    println(s"offsetDateTime1 -> $offsetDateTime1.")
+    println(s"offsetDateTime2 -> $offsetDateTime2.")
+
+    val zonedDateTime1 = LocalDateTime.parse("2020-12-14T14:00").atZone(ZoneId.of("+8"))
+    val zonedDateTime2 = ZonedDateTime.parse("2020-12-14T14:01+08:00[Asia/Macau]")
+    println(s"zonedDateTime1 -> $zonedDateTime1.")
+    println(s"zonedDateTime2 -> $zonedDateTime2.")
+
+    val timeInMacau = LocalDateTime.parse("2020-12-14T14:14").atZone(ZoneId.of("+8"))
+    println(s"timeInMacau -> $timeInMacau.")
   }
 }
