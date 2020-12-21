@@ -99,7 +99,8 @@ object DateAndTimeUsage {
     println(Period.parse("P2M15D"))
 
     // Duration string representation: PnDTnHnMn.nS, PTnHnMn.nS
-    val duration1 = Duration.between(LocalDateTime.parse(s"${today}T09:58"), LocalDateTime.parse("2020-12-09T10:00"))
+    val duration1 = Duration.between(LocalDateTime.parse(s"${today}T09:58"),
+      LocalDateTime.parse("2020-12-09T10:00"))
     println(s"duration1 = $duration1, toHour -> ${duration1.toHours}")
   }
 }
