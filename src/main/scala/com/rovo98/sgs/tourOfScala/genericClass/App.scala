@@ -54,13 +54,13 @@ e.g. class List[+T] 协变 T，表示两个类型 A 和 B, 若 B 是 A 的子类
 
 这可使用让我直观地表示泛型的子类型关系
  */
-abstract class Animal {
+private[this] abstract class Animal {
   def name: String
 }
 
-case class Cat(name: String) extends Animal
+private[this] case class Cat(name: String) extends Animal
 
-case class Dog(name: String) extends Animal
+private[this] case class Dog(name: String) extends Animal
 
 /*
 Scala 标准库中有一个 sealed abstract class List[+A]，A 是协变的
