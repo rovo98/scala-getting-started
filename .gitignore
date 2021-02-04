@@ -17,7 +17,7 @@ project/plugins/project/
 
 ### JetBrains rel
 .idea
-.iml
+*.iml
 
 # CMake
 cmake-build-*/
