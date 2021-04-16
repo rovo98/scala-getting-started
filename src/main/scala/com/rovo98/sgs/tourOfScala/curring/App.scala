@@ -27,7 +27,10 @@ object App {
     }
 
     val possible = foldLeft2(numbers, 0)(_ + _)
+    val partialPossible = foldLeft2(numbers, 0) _
     println(possible)
+    println(partialPossible(_ * _))
+    println(partialPossible((a, b) => a + b + 2))
 
     //noinspection NotImplementedCode
     // 2. use case implicit parameters
