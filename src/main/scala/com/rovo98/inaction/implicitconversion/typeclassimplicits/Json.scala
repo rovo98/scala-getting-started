@@ -24,6 +24,11 @@ object Json {
   def convertToJsonAndPrint[T: Jsonable](x: T): Unit = println(convertToJson(x))
 
   def convertMultipleItemsToJson[T: Jsonable](t: Array[T]): Array[Json] = t.map(convertToJson(_))
+
+  def main(args: Array[String]): Unit = {
+    val name = "rovo98"
+    println(Json.convertToJson(name))
+  }
 }
 
 
