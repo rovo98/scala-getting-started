@@ -5,6 +5,6 @@ abstract class HiringManager {
   protected def makeInterviewer(): Interviewer
 
   def takeInterview(): Unit = {
-    this.makeInterviewer().askQuestions
+    this.makeInterviewer().askQuestions()
   }
 }
