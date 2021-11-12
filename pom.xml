@@ -21,14 +21,6 @@
         <build-helper-maven-plugin.version>1.10</build-helper-maven-plugin.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>artima</id>
-            <name>Artima Maven Repository</name>
-            <url>http://repo.artima.com/releases</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <!-- Scala rel deps -->
         <dependency>
@@ -119,15 +111,6 @@
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
                 <version>${scala-maven-plugin.version}</version>
-                <configuration>
-                    <compilerPlugins>
-                        <compilerPlugin>
-                            <groupId>com.artima.supersafe</groupId>
-                            <artifactId>supersafe_${scala.version}</artifactId>
-                            <version>1.1.12</version>
-                        </compilerPlugin>
-                    </compilerPlugins>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
